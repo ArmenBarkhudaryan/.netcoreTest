@@ -1,5 +1,5 @@
---temp-output:c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\obj\Debug\netcoreapp1.0\
---out:c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\bin\Debug\netcoreapp1.0\ProductsSore.dll
+--temp-output:C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\obj\Debug\netcoreapp1.0\
+--out:C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\bin\Debug\netcoreapp1.0\ProductsSore.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -187,20 +187,20 @@
 --reference:C:\Users\Armen\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Armen\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Armen\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
---reference:c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\bin\Debug\netstandard1.6\BusinessLayer.dll
---reference:c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\CommonLayer\CommonLayer\bin\Debug\netstandard1.6\CommonLayer.dll
---reference:c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\DataLayer\DataLayer\bin\Debug\netstandard1.6\DataLayer.dll
---resource:"c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\obj\Debug\netcoreapp1.0\ProductsSoredotnet-compile.deps.json",ProductsSore.deps.json
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\Program.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\Startup.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\Controllers\AccountController.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\Controllers\BaseController.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\Controllers\ProductController.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\Middleware\TokenProviderMiddleware.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\Middleware\TokenProviderOptions.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\ViewModels\LoginViewModel.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\ViewModels\Manufacturer.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\ViewModels\Product.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\ViewModels\ProductType.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\ViewModels\ProductViewModel.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\src\ProductsSore\ViewModels\RegisterViewModel.cs
+--reference:C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\bin\Debug\netstandard1.6\BusinessLayer.dll
+--reference:C:\Users\Armen\Source\Repos\.netcoreTest\CommonLayer\CommonLayer\bin\Debug\netstandard1.6\CommonLayer.dll
+--reference:C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\bin\Debug\netstandard1.6\DataLayer.dll
+--resource:"C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\obj\Debug\netcoreapp1.0\ProductsSoredotnet-compile.deps.json",ProductsSore.deps.json
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\Program.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\Startup.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\Controllers\AccountController.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\Controllers\BaseController.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\Controllers\ProductController.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\Middleware\TokenProviderMiddleware.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\Middleware\TokenProviderOptions.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ViewModels\LoginViewModel.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ViewModels\Manufacturer.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ViewModels\Product.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ViewModels\ProductType.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ViewModels\ProductViewModel.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ViewModels\RegisterViewModel.cs

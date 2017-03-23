@@ -8,8 +8,8 @@
 -debug:full
 -nostdlib
 -nologo
-"c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\obj\Debug\netstandard1.6\dotnet-compile.assemblyinfo.cs"
--out:"c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\bin\Debug\netstandard1.6\BusinessLayer.dll"
+"C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\obj\Debug\netstandard1.6\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\bin\Debug\netstandard1.6\BusinessLayer.dll"
 -r:"C:\Users\Armen\.nuget\packages\Microsoft.Win32.Primitives\4.3.0\ref\netstandard1.3\Microsoft.Win32.Primitives.dll"
 -r:"C:\Users\Armen\.nuget\packages\System.AppContext\4.1.0\ref\netstandard1.6\System.AppContext.dll"
 -r:"C:\Users\Armen\.nuget\packages\System.Collections\4.3.0\ref\netstandard1.3\System.Collections.dll"
@@ -55,8 +55,8 @@
 -r:"C:\Users\Armen\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\Armen\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\Armen\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
--r:"c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\CommonLayer\CommonLayer\bin\Debug\netstandard1.6\CommonLayer.dll"
--r:"c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\DataLayer\DataLayer\bin\Debug\netstandard1.6\DataLayer.dll"
-"c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\ProductsBL.cs"
-"c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\ProductsLogic.cs"
-"c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\Properties\AssemblyInfo.cs"
+-r:"C:\Users\Armen\Source\Repos\.netcoreTest\CommonLayer\CommonLayer\bin\Debug\netstandard1.6\CommonLayer.dll"
+-r:"C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\bin\Debug\netstandard1.6\DataLayer.dll"
+"C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\ProductsBL.cs"
+"C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\ProductsLogic.cs"
+"C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\Properties\AssemblyInfo.cs"

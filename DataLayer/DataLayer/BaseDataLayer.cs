@@ -15,7 +15,7 @@ namespace DataLayer
 
         public DbDataReader SP_Exec_StoredProcedure(string ProdcedureName, Dictionary<string, object> DictonaryParamsValues)
         {
-            DbDataReader bdreader = null;
+            DbDataReader bdreader;
             SqlConnection connection = new SqlConnection(ConnectionString);
             try
             {
@@ -27,11 +27,8 @@ namespace DataLayer
                 {
                     SqlCommand.Parameters.Add(new SqlParameter(DictonaryParamsValues.ElementAt(i).Key, DictonaryParamsValues.ElementAt(i).Value == null ? (object)DBNull.Value : DictonaryParamsValues.ElementAt(i).Value.ToString()));
                 }
-
-
-                bdreader = SqlCommand.ExecuteReader();
-
                
+                bdreader = SqlCommand.ExecuteReader();
 
                 DictonaryParamValues.Clear();
                 return bdreader;
@@ -40,15 +37,7 @@ namespace DataLayer
             {
                 return null;
             }
-            //finally
-            //{
-            //    if (connection != null)
-            //    {
-            //        connection.Close();
-            //    }
-            //}
         }
         
-
     }
 }

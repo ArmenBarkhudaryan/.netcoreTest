@@ -39,8 +39,7 @@
 
 <body>
     <div class="container">
-
-
+        <div><button id="LogOutId">Log Out</button></div>
         <table class="customTable">
             <thead>
                 <tr>
@@ -52,24 +51,21 @@
                     <th>Manufacturer type</th>
                 </tr>
             </thead>
-            <tbody id="tblBody">
-
-
-            </tbody>
+            <tbody id="tblBody"></tbody>
         </table>
 
     </div>
     <script>
 
         $(document).ready(function () {
+            var token = sessionStorage.getItem("Access-token");
+            var tokenKey  = "Access-token";
             $.ajax({
                 type: 'GET',
                 contentType : "application/json",
                 url: 'api/product/GetAllProducts',
                 accept: 'application/json',
                 beforeSend: function (xhr) {
-
-                    var token = sessionStorage.getItem("Access-token");
                     xhr.setRequestHeader("Authorization", "Bearer " + token);
                 }
             }).success(function (data) {
@@ -80,8 +76,15 @@
                 }
             }
             );
-        }
-            );
+
+            $('#LogOutId').click(function (e) {
+                debugger;
+                e.preventDefault();
+                sessionStorage.removeItem(tokenKey);
+                window.location.href = "/index.html";
+            });
+
+        });
     </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
---temp-output:c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\obj\Debug\netstandard1.6\
---out:c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\bin\Debug\netstandard1.6\BusinessLayer.dll
+--temp-output:C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\obj\Debug\netstandard1.6\
+--out:C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\bin\Debug\netstandard1.6\BusinessLayer.dll
 --define:DEBUG
 --define:TRACE
 --define:NETSTANDARD1_6
@@ -57,8 +57,8 @@
 --reference:C:\Users\Armen\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Armen\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Armen\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---reference:c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\CommonLayer\CommonLayer\bin\Debug\netstandard1.6\CommonLayer.dll
---reference:c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\DataLayer\DataLayer\bin\Debug\netstandard1.6\DataLayer.dll
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\ProductsBL.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\ProductsLogic.cs
-c:\users\armen\documents\visual studio 2015\Projects\ProductsSore\BusinessLayer\Properties\AssemblyInfo.cs
+--reference:C:\Users\Armen\Source\Repos\.netcoreTest\CommonLayer\CommonLayer\bin\Debug\netstandard1.6\CommonLayer.dll
+--reference:C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\bin\Debug\netstandard1.6\DataLayer.dll
+C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\ProductsBL.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\ProductsLogic.cs
+C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\Properties\AssemblyInfo.cs
