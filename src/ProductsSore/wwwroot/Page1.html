@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome To the Authentication Page</title>
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <style>
+        .customTable {
+            width: 100%;
+            border-collapse: collapse;
+            border-right: 1px solid #cccccc;
+            border-top: 1px solid #cccccc;
+        }
+
+            .customTable thead tr th, .customTable tbody tr td {
+                border-bottom: 1px solid #cccccc;
+                border-left: 1px solid #cccccc;
+                color: #000000;
+                background: #ffffff;
+                padding: 5px;
+                vertical-align: middle;
+            }
+
+                .customTable thead tr th:first-child, .customTable tbody tr td:first-child {
+                    text-align: right;
+                }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <table class="customTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product Name</th>
+                    <th>Products Type</th>
+                    <th>Price</th>
+                    <th>Creation Date</th>
+                    <th>Manufacturer type</th>
+                </tr>
+            </thead>
+            <tbody id="tblBody">
+
+
+            </tbody>
+        </table>
+
+    </div>
+    <script>
+
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                contentType : "application/json",
+                url: 'api/product/GetAllProducts',
+                accept: 'application/json',
+                beforeSend: function (xhr) {
+
+                    var token = sessionStorage.getItem("Access-token");
+                    xhr.setRequestHeader("Authorization", "Bearer " + token);
+                }
+            }).success(function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    $('#tblBody').append('<tr><td>' + i + '</td><td>' + data[i].product.name + '</td>' +
+                          '<td>' + data[i].productType + '</td><td>' + data[i].price + '</td><td>' +
+                          data[i].creationDate + '</td><td>' + data[i].manufacture.name + '</td></tr>');
+                }
+            }
+            );
+        }
+            );
+    </script>
+</body>
+</html>

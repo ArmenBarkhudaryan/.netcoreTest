@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome To the Authentication Page</title>
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <h1 id="title" class="hidden"><span id="logo">Welcome to <span>Our Page</span></span></h1>
+        </div>
+        <div class="login-box animated fadeInUp" id="GeneralForm">
+            <div class="box-header">
+                <h2>Log In</h2>
+            </div>
+            <label for="email">EMAIL</label>
+            <br />
+            <input type="text" id="email" required>
+            <br />
+            <label for="password">Password</label>
+            <br />
+            <input type="password" id="password" required>
+            <br />
+            <span><input type="checkbox" id="rememberMe" /> Remember Me</span>
+            <br />
+            <button type="submit" id="submitLogin">Sign In</button>
+        </div>
+    </div>
+    <script>
+
+        var tokenKey = "Access-token";
+        $(document).ready(function () {
+            $('#logo').addClass('animated fadeInDown');
+            $("input:text:visible:first").focus();
+        });
+        $('#email').focus(function () {
+            $('label[for="email"]').addClass('selected');
+        });
+        $('#email').blur(function () {
+            $('label[for="email"]').removeClass('selected');
+        });
+        $('#password').focus(function () {
+            $('label[for="password"]').addClass('selected');
+        });
+        $('#password').blur(function () {
+            $('label[for="password"]').removeClass('selected');
+        });
+
+
+
+        $('#submitLogin').click(function (e) {
+            e.preventDefault();
+            debugger;
+            var loginData = {
+                email: $('#email').val(),
+                password: $('#password').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: "/api/Account/login",
+                data: loginData
+            }).success(function (data) {
+                debugger;
+                // сохраняем в хранилище sessionStorage токен доступа
+                sessionStorage.setItem(tokenKey, data.access_token);
+                console.log(data.access_token);
+
+                window.location.href = "/Page1.html";
+            }).fail(function (data) {
+                debugger;
+                console.log(data);
+            });
+
+           
+        });
+
+
+
+
+        //$("#signin").on('click', function submit(e) {
+        //    e.preventDefault();
+        //    debugger;
+        //    var LoginViewModel = {
+        //        Email: $('#email').val(),
+        //        Password: $('#password').val(),
+        //        RememberMe: $('#rememberMe').is(":checked")
+        //    };
+        //    $.ajax({
+        //        type: 'POST',
+        //        data: JSON.stringify(LoginViewModel),
+        //        url: "/api/Account/login",
+        //        contentType: 'application/json',
+        //    }).success(function (data) {
+        //        sessionStorage.setItem(tokenKey, data.access_token);
+
+
+
+        //        window.location.href = "/Page1.html"
+        //    });
+        //    return false;
+        //});
+
+    </script>
+</body>
+</html>
