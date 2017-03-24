@@ -16,7 +16,6 @@ namespace DataLayer
 
         public List<ArrayList> SP_Exec_StoredProcedure(string ProdcedureName, Dictionary<string, object> DictonaryParamsValues)
         {
-            List<ArrayList> ArrayList = new List<ArrayList>();
             DbDataReader bdreader;
             
             try
@@ -31,19 +30,25 @@ namespace DataLayer
                         SqlCommand.Parameters.Add(new SqlParameter(DictonaryParamsValues.ElementAt(i).Key, DictonaryParamsValues.ElementAt(i).Value == null ? (object)DBNull.Value : DictonaryParamsValues.ElementAt(i).Value.ToString()));
                     }
                     bdreader = SqlCommand.ExecuteReader();
+                    List<ArrayList> ArrayList = new List<ArrayList>();
 
                     DictonaryParamValues.Clear();
                     while (bdreader.Read())
                     {
-                        ArrayList array = new ArrayList();
+                        ArrayList array = new ArrayList(bdreader.FieldCount);
                         for (int i = 0; i < bdreader.FieldCount; i++)
                         {
                             array.Add(bdreader[i]);
                         }
                         ArrayList.Add(array);
                     }
+                    ArrayList.TrimExcess();
                     return ArrayList;
                 }
+
+
+
+                
                 
             }
             catch (Exception ex)
