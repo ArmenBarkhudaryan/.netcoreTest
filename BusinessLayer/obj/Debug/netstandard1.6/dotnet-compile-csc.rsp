@@ -14,6 +14,7 @@
 -r:"C:\Users\Armen\.nuget\packages\System.AppContext\4.1.0\ref\netstandard1.6\System.AppContext.dll"
 -r:"C:\Users\Armen\.nuget\packages\System.Collections\4.3.0\ref\netstandard1.3\System.Collections.dll"
 -r:"C:\Users\Armen\.nuget\packages\System.Collections.Concurrent\4.3.0\ref\netstandard1.3\System.Collections.Concurrent.dll"
+-r:"C:\Users\Armen\.nuget\packages\System.Collections.NonGeneric\4.3.0\ref\netstandard1.3\System.Collections.NonGeneric.dll"
 -r:"C:\Users\Armen\.nuget\packages\System.Console\4.0.0\ref\netstandard1.3\System.Console.dll"
 -r:"C:\Users\Armen\.nuget\packages\System.Data.Common\4.3.0\ref\netstandard1.2\System.Data.Common.dll"
 -r:"C:\Users\Armen\.nuget\packages\System.Data.SqlClient\4.3.0\ref\netstandard1.3\System.Data.SqlClient.dll"

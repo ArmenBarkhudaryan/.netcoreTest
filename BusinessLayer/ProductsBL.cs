@@ -16,10 +16,10 @@ namespace BusinessLayer
             return DataCommunicationLayer.SP_GetAllProducts();
         }
 
-        public List<ProductHistoryDM> GetProductsByID(int id)
-        {
-            return DataCommunicationLayer.SP_GetProductsByID(id);
-        }
+        //public List<ProductHistoryDM> GetProductsByID(int id)
+        //{
+        //    return DataCommunicationLayer.SP_GetProductsByID(id);
+        //}
 
         public void AddProduct(ProductHistoryDM ProdHisModel)
         {

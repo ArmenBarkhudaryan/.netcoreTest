@@ -1,0 +1,13 @@
+#:C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\DataLayer.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\DataLayer.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\CommonLayer\CommonLayer\CommonLayer.xproj
+#:C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ProductsStore.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ProductsStore.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\BusinessLayer.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ProductsStore.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\CommonLayer\CommonLayer\CommonLayer.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\src\ProductsSore\ProductsStore.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\DataLayer.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\BusinessLayer.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\CommonLayer\CommonLayer\CommonLayer.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\BusinessLayer.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\DataLayer.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\DataLayer.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\CommonLayer\CommonLayer\CommonLayer.xproj
+#:C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\BusinessLayer.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\BusinessLayer.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\CommonLayer\CommonLayer\CommonLayer.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\BusinessLayer\BusinessLayer.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\DataLayer.xproj
+C:\Users\Armen\Source\Repos\.netcoreTest\DataLayer\DataLayer\DataLayer.xproj|C:\Users\Armen\Source\Repos\.netcoreTest\CommonLayer\CommonLayer\CommonLayer.xproj

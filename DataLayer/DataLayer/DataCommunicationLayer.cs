@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Data.Common;
+using System.Collections;
 
 namespace DataLayer
 {
@@ -12,52 +13,58 @@ namespace DataLayer
 
         public List<ProductHistoryDM> SP_GetAllProducts()
         {
-            DbDataReader reader = SP_Exec_StoredProcedure("SP_GetAllProducts", DictonaryParamValues);
-            List<ProductHistoryDM> DataModel = new List<ProductHistoryDM>();
-
-
-
-            while (reader.Read())
+            try
             {
-                ProductHistoryDM model = new ProductHistoryDM();
-                model.ProductHistoryID = (int)reader[0];
-                model.ProductModel.Id = (int)reader[1];
-                model.ProductModel.Name = reader[2].ToString();
-                model.Price = (decimal)reader[3];
-                model.Manufacturer.ID = (int)reader[4];
-                model.Manufacturer.Name = reader[5].ToString();
-                model.ProductType.ID = (int)reader[6];
-                model.ProductType.Type = reader[7].ToString();
-                model.CreationDate = (DateTime)reader[8];
-                DataModel.Add(model);
-            }
+                List<ArrayList> ArrList = SP_Exec_StoredProcedure("SP_GetAllProducts", DictonaryParamValues);
+                List<ProductHistoryDM> DataModel = new List<ProductHistoryDM>();
 
-            return DataModel;
+                foreach (var item in ArrList)
+                {
+                    ProductHistoryDM model = new ProductHistoryDM();
+                    model.ProductHistoryID = (int)item[0];
+                    model.ProductModel.Id = (int)item[1];
+                    model.ProductModel.Name = item[2].ToString();
+                    model.Price = (decimal)item[3];
+                    model.Manufacturer.ID = (int)item[4];
+                    model.Manufacturer.Name = item[5].ToString();
+                    model.ProductType.ID = (int)item[6];
+                    model.ProductType.Type = item[7].ToString();
+                    model.CreationDate = (DateTime)item[8];
+                    DataModel.Add(model);
+                }
+                return DataModel;
+            }
+            catch(Exception ex)
+            {
+               Console.WriteLine(ex.Message);
+                return null;
+            }
+            
         }
 
-        public List<ProductHistoryDM> SP_GetProductsByID(int id)
-        {
-            DictonaryParamValues.Add("ProductID", id);
-            DbDataReader reader = SP_Exec_StoredProcedure("SP_GetProductsByID", DictonaryParamValues);
-            List<ProductHistoryDM> DataModel = new List<ProductHistoryDM>();
+        //public List<ProductHistoryDM> SP_GetProductsByID(int id)
+        //{
+        //    DictonaryParamValues.Add("ProductID", id);
+        //    DbDataReader reader = SP_Exec_StoredProcedure("SP_GetProductsByID", DictonaryParamValues);
+        //    List<ProductHistoryDM> DataModel = new List<ProductHistoryDM>();
 
-            while (reader.Read())
-            {
-                ProductHistoryDM model = new ProductHistoryDM();
-                model.ProductHistoryID = (int)reader[0];
-                model.Price = (decimal)reader[1];
-                model.ProductModel.Id = (int)reader[2];
-                model.ProductModel.Name = reader[3].ToString();
-                model.ProductType.ID = (int)reader[4];
-                model.ProductType.Type = reader[5].ToString();
-                model.Manufacturer.ID = (int)reader[6];
-                model.Manufacturer.Name = reader[7].ToString();
-                model.CreationDate = (DateTime)reader[8];
-                DataModel.Add(model);
-            }
+        //    while (reader.Read())
+        //    {
+        //        ProductHistoryDM model = new ProductHistoryDM();
+        //        model.ProductHistoryID = (int)reader[0];
+        //        model.Price = (decimal)reader[1];
+        //        model.ProductModel.Id = (int)reader[2];
+        //        model.ProductModel.Name = reader[3].ToString();
+        //        model.ProductType.ID = (int)reader[4];
+        //        model.ProductType.Type = reader[5].ToString();
+        //        model.Manufacturer.ID = (int)reader[6];
+        //        model.Manufacturer.Name = reader[7].ToString();
+        //        model.CreationDate = (DateTime)reader[8];
+        //        DataModel.Add(model);
+        //    }
 
-            return DataModel;
-        }
+        //    return DataModel;
+        //}
 
         public void SP_AddProduct(ProductHistoryDM ProductDataModel)
         {

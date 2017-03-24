@@ -3902,6 +3902,7 @@
         "dependencies": {
           "CommonLayer": "1.0.0",
           "NETStandard.Library": "1.6.0",
+          "System.Collections.NonGeneric": "4.3.0",
           "System.Data.Common": "4.3.0",
           "System.Data.SqlClient": "4.3.0"
         },

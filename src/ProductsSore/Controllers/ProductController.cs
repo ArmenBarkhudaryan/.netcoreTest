@@ -42,29 +42,29 @@ namespace ProductsStore.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id:int}")]
-        public List<ProductViewModel> Get(int id)
-        {
-            List<ProductHistoryDM> model = BusinessLayer.GetProductsByID(id);
-            List<ProductViewModel> viewModel = new List<ProductViewModel>();
+        //[HttpGet("{id:int}")]
+        //public List<ProductViewModel> Get(int id)
+        //{
+        //    List<ProductHistoryDM> model = BusinessLayer.GetProductsByID(id);
+        //    List<ProductViewModel> viewModel = new List<ProductViewModel>();
 
-            foreach (var item in model)
-            {
-                ProductViewModel mod = new ProductViewModel();
-                mod.Price = item.Price;
-                mod.CreationDate = item.CreationDate;
-                mod.ProductHistoryID = item.ProductHistoryID;
-                mod.Product.ID = item.ProductModel.Id;
-                mod.Product.Name = item.ProductModel.Name;
-                mod.ProductType = item.ProductType.Type;
-                mod.ProductTypeID = item.ProductType.ID;
-                mod.Manufacture.ID = item.Manufacturer.ID;
-                mod.Manufacture.Name = item.Manufacturer.Name;
-                viewModel.Add(mod);
-            }
+        //    foreach (var item in model)
+        //    {
+        //        ProductViewModel mod = new ProductViewModel();
+        //        mod.Price = item.Price;
+        //        mod.CreationDate = item.CreationDate;
+        //        mod.ProductHistoryID = item.ProductHistoryID;
+        //        mod.Product.ID = item.ProductModel.Id;
+        //        mod.Product.Name = item.ProductModel.Name;
+        //        mod.ProductType = item.ProductType.Type;
+        //        mod.ProductTypeID = item.ProductType.ID;
+        //        mod.Manufacture.ID = item.Manufacturer.ID;
+        //        mod.Manufacture.Name = item.Manufacturer.Name;
+        //        viewModel.Add(mod);
+        //    }
 
-            return viewModel;
-        }
+        //    return viewModel;
+        //}
 
         // POST api/values
         [HttpPost]

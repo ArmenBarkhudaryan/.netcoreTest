@@ -4,6 +4,7 @@ using System.Linq;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data;
+using System.Collections;
 
 namespace DataLayer
 {
@@ -13,25 +14,37 @@ namespace DataLayer
         public Dictionary<string, object> DictonaryParamValues = new Dictionary<string, object>();
         
 
-        public DbDataReader SP_Exec_StoredProcedure(string ProdcedureName, Dictionary<string, object> DictonaryParamsValues)
+        public List<ArrayList> SP_Exec_StoredProcedure(string ProdcedureName, Dictionary<string, object> DictonaryParamsValues)
         {
+            List<ArrayList> ArrayList = new List<ArrayList>();
             DbDataReader bdreader;
-            SqlConnection connection = new SqlConnection(ConnectionString);
+            
             try
             {
-                SqlCommand SqlCommand = new SqlCommand(ProdcedureName, connection);
-                connection.Open();
-                SqlCommand.CommandType = CommandType.StoredProcedure;
-
-                for (int i = 0; i < DictonaryParamsValues.Count; i++)
+                using(SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-                    SqlCommand.Parameters.Add(new SqlParameter(DictonaryParamsValues.ElementAt(i).Key, DictonaryParamsValues.ElementAt(i).Value == null ? (object)DBNull.Value : DictonaryParamsValues.ElementAt(i).Value.ToString()));
-                }
-               
-                bdreader = SqlCommand.ExecuteReader();
+                    SqlCommand SqlCommand = new SqlCommand(ProdcedureName, connection);
+                    connection.Open();
+                    SqlCommand.CommandType = CommandType.StoredProcedure;
+                    for (int i = 0; i < DictonaryParamsValues.Count; i++)
+                    {
+                        SqlCommand.Parameters.Add(new SqlParameter(DictonaryParamsValues.ElementAt(i).Key, DictonaryParamsValues.ElementAt(i).Value == null ? (object)DBNull.Value : DictonaryParamsValues.ElementAt(i).Value.ToString()));
+                    }
+                    bdreader = SqlCommand.ExecuteReader();
 
-                DictonaryParamValues.Clear();
-                return bdreader;
+                    DictonaryParamValues.Clear();
+                    while (bdreader.Read())
+                    {
+                        ArrayList array = new ArrayList();
+                        for (int i = 0; i < bdreader.FieldCount; i++)
+                        {
+                            array.Add(bdreader[i]);
+                        }
+                        ArrayList.Add(array);
+                    }
+                    return ArrayList;
+                }
+                
             }
             catch (Exception ex)
             {
