@@ -11,7 +11,7 @@ namespace BusinessLayer
     {
         public class ProductsBL
         {
-            DataAccesLayer DataCommunicationLayer = new DataAccesLayer();
+            DataAccesLayer DataCommunicationLayer = DataAccesLayer.DataLayer;
 
             public List<ProductHistoryDM> GetAllProducts()
             {

@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using ProductsStore.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using CommonLayer;
+using System.Net.Http;
+using System.Net;
+using Microsoft.Net.Http.Headers;
+using Microsoft.AspNetCore.Mvc.Filters;
+using ProductsSore.Middleware;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,29 +21,27 @@ namespace ProductsStore.Controllers
         // GET: api/values
         [Authorize(Roles = "admin")]
         [Route("[action]")]
-        public List<ProductViewModel> GetAllProducts()
+        public IActionResult GetAllProducts()
         {
-            var d = HttpContext;
+               
+                List<ProductHistoryDM> list = BusinessLayer.GetAllProducts();
+                List<ProductViewModel> ViewModel = new List<ProductViewModel>();
 
-            List<ProductHistoryDM> list = BusinessLayer.GetAllProducts();
-            List<ProductViewModel> ViewModel = new List<ProductViewModel>();
-
-            foreach (var item in list)
-            {
-                ProductViewModel model = new ProductViewModel();
-                model.ProductHistoryID = item.ProductHistoryID;
-                model.Price = item.Price;
-                model.CreationDate = item.CreationDate;
-                model.ProductType = item.ProductType.Type;
-                model.ProductTypeID = item.ProductType.ID;
-                model.Manufacture.ID = item.Manufacturer.ID;
-                model.Manufacture.Name = item.Manufacturer.Name;
-                model.Product.ID = item.ProductModel.Id;
-                model.Product.Name = item.ProductModel.Name;
-                ViewModel.Add(model);
-            }
-
-            return ViewModel;
+                foreach (var item in list)
+                {
+                    ProductViewModel model = new ProductViewModel();
+                    model.ProductHistoryID = item.ProductHistoryID;
+                    model.Price = item.Price;
+                    model.CreationDate = item.CreationDate;
+                    model.ProductType = item.ProductType.Type;
+                    model.ProductTypeID = item.ProductType.ID;
+                    model.Manufacture.ID = item.Manufacturer.ID;
+                    model.Manufacture.Name = item.Manufacturer.Name;
+                    model.Product.ID = item.ProductModel.Id;
+                    model.Product.Name = item.ProductModel.Name;
+                    ViewModel.Add(model);
+                }
+                return Json(ViewModel);
         }
 
         // GET api/values/5

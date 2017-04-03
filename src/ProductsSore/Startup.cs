@@ -10,6 +10,10 @@ using Microsoft.Extensions.Logging;
 using DataLayer;
 using Microsoft.IdentityModel.Tokens;
 using ProductsStore.Middleware.DataModels;
+using System.Net;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Diagnostics;
+using ProductsSore.Middleware;
 
 namespace ProductsSore
 {
@@ -42,12 +46,34 @@ namespace ProductsSore
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddMvc();
+            services.AddMvc(config => {
+                config.Filters.Add(typeof(CustomExceptionFilter));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404)
+                {
+                    context.Request.Path = "/ProductController";
+                    await next();
+                }
+            });
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                //We can inplement some action to handle occured errors 
+                app.UseExceptionHandler();
+            }
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -78,9 +104,10 @@ namespace ProductsSore
                 }
             });
 
-
             app.UseApplicationInsightsRequestTelemetry();
             app.UseApplicationInsightsExceptionTelemetry();
+
+            
 
             app.UseDefaultFiles();
             app.UseStaticFiles();

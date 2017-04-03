@@ -8,14 +8,29 @@ using System.Collections;
 
 namespace DataLayer
 {
-    public class DataAccesLayer : BaseDataLayer
+    public class DataAccesLayer
     {
+        BaseDataLayer dataLayer = BaseDataLayer.BaseDataAccessLayer;
+
+        private static DataAccesLayer _instance;
+        private DataAccesLayer() { }
+        public static  DataAccesLayer DataLayer
+        {
+            get
+            {
+                if(_instance == null)
+                {
+                    _instance = new DataAccesLayer();
+                }
+                return _instance;
+            }
+        }
 
         public List<ProductHistoryDM> SP_GetAllProducts()
         {
             try
             {
-                List<ArrayList> ArrList = SP_Exec_StoredProcedure("SP_GetAllProducts", DictonaryParamValues);
+                List<ArrayList> ArrList = dataLayer.SP_Exec_StoredProcedure("SP_GetAllProducts", new Dictionary<string, object> ());
                 List<ProductHistoryDM> DataModel = new List<ProductHistoryDM>();
 
                 foreach (var item in ArrList)
@@ -70,18 +85,30 @@ namespace DataLayer
         {
             try
             {
-                DictonaryParamValues.Add("Price", ProductDataModel.Price);
-                DictonaryParamValues.Add("ManufacturerID", ProductDataModel.Manufacturer.ID);
-                DictonaryParamValues.Add("ProductID", ProductDataModel.ProductModel.Id);
-                DictonaryParamValues.Add("ProductType", ProductDataModel.ProductType.ID);
+                Dictionary<string, object> ParamsAndValues = new Dictionary<string, object>();
 
-                SP_Exec_StoredProcedure("SP_AddProduct", DictonaryParamValues);
+                ParamsAndValues.Add("Price", ProductDataModel.Price);
+                ParamsAndValues.Add("ManufacturerID", ProductDataModel.Manufacturer.ID);
+                ParamsAndValues.Add("ProductID", ProductDataModel.ProductModel.Id);
+                ParamsAndValues.Add("ProductType", ProductDataModel.ProductType.ID);
+
+                dataLayer.SP_Exec_StoredProcedure("SP_AddProduct", ParamsAndValues);
             }
             catch (Exception ex)
             {
-
+                
             }
         }
 
+        public int SP_ErrorLogger(string ExceptionName, string JsonExceptionStackTrace)
+        {
+            Dictionary<string, object> ParamsAndValues = new Dictionary<string, object>();
+            ParamsAndValues.Add("ExceptionName", ExceptionName);
+            ParamsAndValues.Add("StackTrace", JsonExceptionStackTrace);
+            List<ArrayList> ArrList = dataLayer.SP_Exec_StoredProcedure("SP_ErrorLogger", ParamsAndValues);
+
+            int ExceptionId = (int)ArrList[0][0];
+            return ExceptionId;
+        }
     }
 }

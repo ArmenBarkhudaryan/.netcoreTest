@@ -4,7 +4,8 @@
   "dependencies": {
     "CommonLayer": "1.0.0-*",
     "DataLayer": "1.0.0-*",
-    "NETStandard.Library": "1.6.0"
+    "NETStandard.Library": "1.6.1",
+    "Newtonsoft.Json": "9.0.1"
   },
 
   "frameworks": {
